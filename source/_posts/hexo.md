@@ -1,6 +1,8 @@
 ---
 title: 个人博客 GitHub Pages + Hexo
 date: 2018-08-12 01:30:35
+toc: true
+comments: true
 tags:
   - Hexo
 categories:
@@ -15,6 +17,8 @@ categories:
 ### 1.在GitHub上创建一个项目
 [GitHub Pages](https://pages.github.com)文档，可以了解一下，这里只用了第一步，创建一个项目。
 ![](hexo/github1.png)
+
+<!-- more -->
 
 ### 2.将本地博客上传到GitHub上
 0. 将本地git与GitHub绑定（通过SSH）
@@ -53,3 +57,16 @@ deploy:
 - 然后每次新建文章时会多一个和文章名字一样的文件夹，图片可以放在这里
 - 引用图片时可以写`![](文件夹/logo.png)`
 - 生成html时会自动补充为图片的绝对路径
+
+#### 如何在首页显示文章摘要问题
+- 修改主题的`_config.yml`文件
+```
+# Automatically Excerpt. Not recommend.
+# Please use <!-- more --> in the post to control excerpt accurately.
+auto_excerpt: #自动摘要
+  enable: true
+  length: 150
+```
+- 将值修改为`ture`后首页将展示自动摘要，但是没有格式可言，很丑;
+- 所以这里我们还要手动设置摘要范围
+- 在文章中添加`<!-- more -->`，表示文章到此为止为摘要部分显示在主页。
